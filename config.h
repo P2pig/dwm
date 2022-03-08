@@ -76,6 +76,7 @@ static const char *mutetoggle[]         = { "sh", "-c", "amixer set Master toggl
 static const char *flameshot[]          = { "sh", "-c", "flameshot gui", NULL };
 static const char *flameshotFull[]      = { "sh", "-c", "flameshot full -p ~/Downloads/Wallpaper/.capture/", NULL };
 static const char *firefox[]            = { "firefox", NULL };
+static const char *newbg[]      = { "sh", "-c", "feh --no-fehbg --bg-scale -z /home/ducky/Downloads/Wallpaper/*.jpg &", NULL };
 
 static Key keys[] = {
         /* modifier                     key             function        argument */
@@ -95,6 +96,7 @@ static Key keys[] = {
         { MODKEY,                       XK_F4,          spawn,          {.v = mutetoggle} },
         { MODKEY,                       XK_F5,          spawn,          {.v = decvolume} },
         { MODKEY,                       XK_F6,          spawn,          {.v = incvolume} },
+        { MODKEY,                       XK_BackSpace,   spawn,          {.v = newbg} },
         { MODKEY,                       XK_b,           togglebar,      {0} },
         { MODKEY,                       XK_j,           focusstack,     {.i = +1 } },
         { MODKEY,                       XK_k,           focusstack,     {.i = -1 } },
