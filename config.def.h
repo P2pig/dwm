@@ -23,7 +23,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "っ", "•́", "ᴥ", "•̀", "ʔ", "♡"};
+static const char *tags[] = { "1", "2", "3", "4"};
 
 static const Rule rules[] = {
         /* xprop(1):
@@ -70,14 +70,13 @@ static const char *vocab[]              = { "sh", "-c", "alacritty -e vim vocab"
 static const char *pdfViwer_llpp[]      = { "sh", "-c", "llpp -last", NULL };
 static const char *incbrightness[]      = { "sh", "-c", "xbacklight -inc 2", NULL };
 static const char *decbrightness[]      = { "sh", "-c", "xbacklight -dec 2", NULL };
-static const char *incvolume[]          = { "sh", "-c", "amixer set Master 1%+", NULL };
-static const char *decvolume[]          = { "sh", "-c", "amixer set Master 1%-", NULL };
+static const char *incvolume[]          = { "sh", "-c", "amixer set Master 2%+", NULL };
+static const char *decvolume[]          = { "sh", "-c", "amixer set Master 2%-", NULL };
 static const char *mutetoggle[]         = { "sh", "-c", "pactl set-sink-mute 0 toggle", NULL };
 static const char *flameshot[]          = { "sh", "-c", "flameshot gui", NULL };
 static const char *flameshotFull[]      = { "sh", "-c", "flameshot full -p ~/Downloads/Wallpaper/.capture/", NULL };
 static const char *firefox[]            = { "firefox", NULL };
-static const char *newbg[]      = { "sh", "-c", "feh --no-fehbg --bg-scale -z /home/ducky/Downloads/Wallpaper/*.jpg &", NULL };
-
+static const char *newbg[]      = { "sh", "-c", "feh --bg-center -z /home/ducky/Pictures/", NULL };
 static Key keys[] = {
         /* modifier                     key             function        argument */
         { MODKEY,                       XK_p,           spawn,          {.v = dmenucmd } },
@@ -97,7 +96,7 @@ static Key keys[] = {
         { MODKEY,                       XK_F5,          spawn,          {.v = decvolume} },
         { MODKEY,                       XK_F6,          spawn,          {.v = incvolume} },
         { MODKEY,                       XK_BackSpace,   spawn,          {.v = newbg} },
-        { MODKEY,                       XK_b,           togglebar,      {0} },
+        { MODKEY|ShiftMask,             XK_b,           togglebar,      {0} },
         { MODKEY,                       XK_j,           focusstack,     {.i = +1 } },
         { MODKEY,                       XK_k,           focusstack,     {.i = -1 } },
         { MODKEY,                       XK_i,           incnmaster,     {.i = +1 } },
@@ -108,7 +107,7 @@ static Key keys[] = {
 //        { MODKEY,                       XK_Tab,         view,           {0} },
         { MODKEY|ShiftMask,             XK_c,           killclient,     {0} },
         { MODKEY,                       XK_t,           setlayout,      {.v = &layouts[0]} },
-        { MODKEY,                       XK_f,           setlayout,      {.v = &layouts[1]} },
+//        { MODKEY,                       XK_f,           setlayout,      {.v = &layouts[1]} },
         { MODKEY,                       XK_m,           setlayout,      {.v = &layouts[2]} },
         { MODKEY,                       XK_space,       setlayout,      {0} },
         { MODKEY|ShiftMask,             XK_space,       togglefloating, {0} },
