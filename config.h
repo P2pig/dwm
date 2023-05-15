@@ -61,6 +61,8 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *roficmd[] = { "rofi", "-show" , "combi", "-combi-modi", "calc:~/show_calc.sh,drun", NULL };
+static const char *rofi_trans[]         = { "sh", "-c", "rofi_trans", NULL };
 
 // "-fn", dmenufont, 
 static const char *termcmd[]            = { "alacritty", NULL };
@@ -70,8 +72,10 @@ static const char *vocab[]              = { "sh", "-c", "alacritty -e vim vocab"
 static const char *pdfViwer_llpp[]      = { "sh", "-c", "llpp -last", NULL };
 static const char *incbrightness[]      = { "sh", "-c", "xbacklight -inc 2", NULL };
 static const char *decbrightness[]      = { "sh", "-c", "xbacklight -dec 2", NULL };
-static const char *incvolume[]          = { "sh", "-c", "amixer set Master 2%+", NULL };
-static const char *decvolume[]          = { "sh", "-c", "amixer set Master 2%-", NULL };
+//static const char *incvolume[]          = { "sh", "-c", "amixer set Master 2%+", NULL };
+//static const char *decvolume[]          = { "sh", "-c", "amixer set Master 2%-", NULL };
+static const char *incvolume[]          = { "sh", "-c", "pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +5%", NULL };
+static const char *decvolume[]          = { "sh", "-c", "pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -5%", NULL };
 static const char *mutetoggle[]         = { "sh", "-c", "pactl set-sink-mute 0 toggle", NULL };
 static const char *flameshot[]          = { "sh", "-c", "flameshot gui", NULL };
 static const char *flameshotFull[]      = { "sh", "-c", "flameshot full -p ~/Downloads/Wallpaper/.capture/", NULL };
@@ -79,7 +83,9 @@ static const char *firefox[]            = { "firefox", NULL };
 static const char *newbg[]      = { "sh", "-c", "feh --bg-center -z /home/ducky/Pictures/", NULL };
 static Key keys[] = {
         /* modifier                     key             function        argument */
-        { MODKEY,                       XK_p,           spawn,          {.v = dmenucmd } },
+	//{ MODKEY,                     XK_p,           spawn,          {.v = dmenucmd } },
+        { MODKEY,                       XK_p,           spawn,          {.v = roficmd } },
+        { MODKEY,            		XK_l,           spawn,          {.v = rofi_trans } },
         { MODKEY|ShiftMask,             XK_Return,      spawn,          {.v = termcmd } },
         { MODKEY|ShiftMask,		XK_f, 	        spawn,          {.v = firefox} },
         /* passive */
