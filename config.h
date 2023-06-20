@@ -31,7 +31,7 @@ static const Rule rules[] = {
          *	WM_NAME(STRING) = title
          */
         /* class      instance    title       tags mask     isfloating   monitor */
-        { "Gimp",     NULL,       NULL,       0,            1,           -1 },
+        { "Gimp",     NULL,       NULL,       0,            0,           -1 },
         { "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
@@ -80,22 +80,22 @@ static const char *mutetoggle[]         = { "sh", "-c", "pactl set-sink-mute 0 t
 static const char *flameshot[]          = { "sh", "-c", "flameshot gui", NULL };
 static const char *flameshotFull[]      = { "sh", "-c", "flameshot full -p ~/Downloads/Wallpaper/.capture/", NULL };
 static const char *firefox[]            = { "firefox", NULL };
-static const char *newbg[]      = { "sh", "-c", "feh --bg-center -z /home/ducky/Pictures/", NULL };
+static const char *newbg[]              = { "sh", "-c", "feh --bg-center -z /home/ducky/Pictures/", NULL };
 static Key keys[] = {
         /* modifier                     key             function        argument */
-	//{ MODKEY,                     XK_p,           spawn,          {.v = dmenucmd } },
+	    //{ MODKEY,                     XK_p,           spawn,          {.v = dmenucmd } },
         { MODKEY,                       XK_p,           spawn,          {.v = roficmd } },
-        { MODKEY,            		XK_space, 	spawn,          {.v = rofi_trans } },
+        { MODKEY,            		    XK_space, 	    spawn,          {.v = rofi_trans } },
         { MODKEY|ShiftMask,             XK_Return,      spawn,          {.v = termcmd } },
-        { MODKEY|ShiftMask,		XK_f, 	        spawn,          {.v = firefox} },
+        { MODKEY|ShiftMask,		        XK_f, 	        spawn,          {.v = firefox} },
         /* passive */
-        { MODKEY,			XK_Print,       spawn,          {.v = flameshotFull} },
-        { 0,				XK_Print,       spawn,          {.v = flameshot} },
+        { MODKEY,			            XK_Print,       spawn,          {.v = flameshotFull} },
+        { 0,				            XK_Print,       spawn,          {.v = flameshot} },
         /* active */
-        { MODKEY|ShiftMask,		XK_o, 	        spawn,          {.v = todo} },
-        { MODKEY|ShiftMask,		XK_l, 	        spawn,          {.v = note} },
-        { MODKEY|ShiftMask,		XK_i, 	        spawn,          {.v = vocab} },
-        { MODKEY|ShiftMask,	        XK_n, 	        spawn,          {.v = pdfViwer_llpp} },
+        { MODKEY|ShiftMask,		        XK_o, 	        spawn,          {.v = todo} },
+        { MODKEY|ShiftMask,		        XK_l, 	        spawn,          {.v = note} },
+        { MODKEY|ShiftMask,		        XK_i, 	        spawn,          {.v = vocab} },
+        { MODKEY|ShiftMask,	            XK_n, 	        spawn,          {.v = pdfViwer_llpp} },
         { MODKEY,                       XK_F1,          spawn,          {.v = decbrightness} },
         { MODKEY,                       XK_F2,          spawn,          {.v = incbrightness} },
         { MODKEY,                       XK_F4,          spawn,          {.v = mutetoggle} },
@@ -110,13 +110,13 @@ static Key keys[] = {
         { MODKEY,                       XK_h,           setmfact,       {.f = -0.05} },
         { MODKEY,                       XK_l,           setmfact,       {.f = +0.05} },
         { MODKEY,                       XK_Return,      zoom,           {0} },
-        { MODKEY,                       XK_0,      	zoom,           {0} },
-//        { MODKEY,                       XK_Tab,         view,           {0} },
+        { MODKEY,                       XK_0,      	    zoom,           {0} },
+        //{ MODKEY,                       XK_Tab,         view,           {0} },
         { MODKEY|ShiftMask,             XK_c,           killclient,     {0} },
         { MODKEY,                       XK_t,           setlayout,      {.v = &layouts[0]} },
-//        { MODKEY,                       XK_f,           setlayout,      {.v = &layouts[1]} },
+        //{ MODKEY,                       XK_f,           setlayout,      {.v = &layouts[1]} },
         { MODKEY,                       XK_m,           setlayout,      {.v = &layouts[2]} },
-//        { MODKEY,                       XK_space,       setlayout,      {0} },
+        //{ MODKEY,                       XK_space,       setlayout,      {0} },
         { MODKEY|ShiftMask,             XK_space,       togglefloating, {0} },
         { MODKEY,                       XK_0,           view,           {.ui = ~0 } },
         { MODKEY|ShiftMask,             XK_0,           tag,            {.ui = ~0 } }, 
