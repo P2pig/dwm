@@ -64,18 +64,20 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-nb", col_gray1,
 static const char *roficmd[] = { "rofi", "-show" , "combi", "-combi-modi", "calc:~/show_calc.sh,drun", NULL };
 static const char *rofi_trans[]         = { "sh", "-c", "rofi_trans", NULL };
 
+// max birghtness 96000
+
 // "-fn", dmenufont, 
 static const char *termcmd[]            = { "alacritty", NULL };
 static const char *todo[]               = { "sh", "-c", "alacritty -e vim todo", NULL };
 static const char *note[]               = { "sh", "-c", "alacritty -e vim note", NULL };
 static const char *vocab[]              = { "sh", "-c", "alacritty -e vim vocab", NULL };
 static const char *pdfViwer_llpp[]      = { "sh", "-c", "llpp -last", NULL };
-static const char *incbrightness[]      = { "sh", "-c", "xbacklight -inc 0.2", NULL };
-static const char *decbrightness[]      = { "sh", "-c", "xbacklight -dec 0.2", NULL };
+static const char *incbrightness[]      = { "sh", "-c", "xbacklight -inc 1", NULL };
+static const char *decbrightness[]      = { "sh", "-c", "xbacklight -dec 1", NULL };
 //static const char *incvolume[]          = { "sh", "-c", "amixer set Master 2%+", NULL };
 //static const char *decvolume[]          = { "sh", "-c", "amixer set Master 2%-", NULL };
-static const char *incvolume[]          = { "sh", "-c", "pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +5%", NULL };
-static const char *decvolume[]          = { "sh", "-c", "pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -5%", NULL };
+static const char *volume_increase[]          = { "sh", "-c", "pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +5%", NULL };
+static const char *volume_decrease[]          = { "sh", "-c", "pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -5%", NULL };
 static const char *mutetoggle[]         = { "sh", "-c", "pactl set-sink-mute 0 toggle", NULL };
 static const char *flameshot[]          = { "sh", "-c", "flameshot gui", NULL };
 static const char *flameshotFull[]      = { "sh", "-c", "flameshot full -p ~/Downloads/ScreenShot/", NULL };
@@ -98,11 +100,11 @@ static Key keys[] = {
         { MODKEY|ShiftMask,	            XK_n, 	        spawn,          {.v = pdfViwer_llpp} },
         { MODKEY,                       XK_F1,          spawn,          {.v = decbrightness} },
         { MODKEY,                       XK_F2,          spawn,          {.v = incbrightness} },
-        { MODKEY,                       XK_F4,          spawn,          {.v = mutetoggle} },
-        { MODKEY,                       XK_F5,          spawn,          {.v = decvolume} },
-        { MODKEY,                       XK_F6,          spawn,          {.v = incvolume} },
+        { MODKEY,                       XK_F3,          spawn,          {.v = mutetoggle} },
+        { MODKEY,                       XK_F4,          spawn,          {.v = volume_decrease} },
+        { MODKEY,                       XK_F5,          spawn,          {.v = volume_increase} },
         { MODKEY,                       XK_BackSpace,   spawn,          {.v = newbg} },
-        { MODKEY|ShiftMask,             XK_b,           togglebar,      {0} },
+        { MODKEY|ControlMask,           XK_b,           togglebar,      {0} },
         { MODKEY,                       XK_j,           focusstack,     {.i = +1 } },
         { MODKEY,                       XK_k,           focusstack,     {.i = -1 } },
         { MODKEY,                       XK_i,           incnmaster,     {.i = +1 } },
