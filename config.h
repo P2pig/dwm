@@ -100,6 +100,7 @@ static Key keys[] = {
     { MODKEY,                XK_F5,           spawn,          {.v = volume_increase} },
     { MODKEY,                XK_BackSpace,    spawn,          {.v = newbg}           },
     { MODKEY|ControlMask,    XK_b,            togglebar,      {0}                    },
+    { MODKEY,                XK_Escape,       focusstack,     {.i = +1 }             },
     { MODKEY,                XK_j,            focusstack,     {.i = +1 }             },
     { MODKEY,                XK_k,            focusstack,     {.i = -1 }             },
     { MODKEY|ShiftMask,      XK_i,            incnmaster,     {.i = +1 }             },
