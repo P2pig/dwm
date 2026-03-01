@@ -70,8 +70,8 @@ static const char *rofi_trans[]         = { "sh", "-c", "rofi_trans", NULL };
 // "-fn", dmenufont, 
 static const char *volume_increase[]    = { "sh", "-c", "pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +5%", NULL };
 static const char *volume_decrease[]    = { "sh", "-c", "pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -5%", NULL };
-static const char *incbrightness[]      = { "sh", "-c", "xbacklight -inc 1", NULL };
-static const char *decbrightness[]      = { "sh", "-c", "xbacklight -dec 1", NULL };
+static const char *incbrightness[]      = { "sh", "-c", "xbacklight -inc 0.25", NULL };
+static const char *decbrightness[]      = { "sh", "-c", "xbacklight -dec 0.25", NULL };
 static const char *todo[]               = { "sh", "-c", "alacritty -e vim todo", NULL };
 static const char *note[]               = { "sh", "-c", "alacritty -e vim note", NULL };
 static const char *vocab[]              = { "sh", "-c", "alacritty -e vim vocab", NULL };
