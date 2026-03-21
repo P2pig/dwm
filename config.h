@@ -62,7 +62,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-nb", col_gray1, "-nf", col_gray3, 
                                   "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *roficmd[] = { "rofi", "-show" , "combi", "-combi-modi", "calc:~/show_calc.sh,drun", NULL };
+static const char *roficmd[] = { "rofi", "-show" , "combi", "-combi-modi", "window,drun,run", NULL };
 static const char *rofi_trans[]         = { "sh", "-c", "rofi_trans", NULL };
 
 // max birghtness 96000
@@ -70,6 +70,7 @@ static const char *rofi_trans[]         = { "sh", "-c", "rofi_trans", NULL };
 // "-fn", dmenufont, 
 static const char *volume_increase[]    = { "sh", "-c", "pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +5%", NULL };
 static const char *volume_decrease[]    = { "sh", "-c", "pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -5%", NULL };
+static const char *speak_clip[]         = { "sh", "-c", "speak_clip", NULL };
 static const char *incbrightness[]      = { "sh", "-c", "xbacklight -inc 0.25", NULL };
 static const char *decbrightness[]      = { "sh", "-c", "xbacklight -dec 0.25", NULL };
 static const char *todo[]               = { "sh", "-c", "alacritty -e vim todo", NULL };
@@ -97,6 +98,7 @@ static Key keys[] = {
     { MODKEY,                XK_F4,           spawn,          {.v = volume_decrease} },
     { MODKEY,                XK_F5,           spawn,          {.v = volume_increase} },
     { MODKEY,                XK_BackSpace,    spawn,          {.v = newbg}           },
+    { MODKEY,                XK_Tab,          spawn,          {.v = speak_clip}      }, 
     { MODKEY|ControlMask,    XK_b,            togglebar,      {0}                    },
     { MODKEY,                XK_Escape,       focusstack,     {.i = +1 }             },
     { MODKEY,                XK_j,            focusstack,     {.i = +1 }             },
