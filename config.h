@@ -84,7 +84,7 @@ static const char *newbg[]              = { "sh", "-c", "feh --bg-center -z /hom
 static const char *termcmd[]            = { "alacritty", NULL };
 static Key keys[] = {
     /* modifier              key              function        argument */
-    { MODKEY,                XK_p,            spawn,          {.v = roficmd }        },
+    { MODKEY|ShiftMask,      XK_p,            spawn,          {.v = roficmd }        },
     { MODKEY,                XK_space,        spawn,          {.v = rofi_trans }     },
     { MODKEY|ShiftMask,      XK_Return,       spawn,          {.v = termcmd }        },
     /* active */
